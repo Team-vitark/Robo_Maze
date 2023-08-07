@@ -11,44 +11,46 @@ const int rightmotorPinA = 11;
 const int rightmotorPinB = 12;
 
 const int thresholdDistance = 20; // 20 centimeters
+const int motorON = 150; //speed range (0-255)
+const int motorOFF = 0; // speed 0
 
 void stopMotors() {
-  digitalWrite(leftmotorPinA, LOW);
-  digitalWrite(leftmotorPinB, LOW);
-  digitalWrite(rightmotorPinA, LOW);
-  digitalWrite(rightmotorPinB, LOW);
+  digitalWrite(leftmotorPinA, motorOFF);
+  digitalWrite(leftmotorPinB, motorOFF);
+  digitalWrite(rightmotorPinA, motorOFF);
+  digitalWrite(rightmotorPinB, motorOFF);
 }
 
 void moveForward() {
-  digitalWrite(leftmotorPinA, HIGH);
-  digitalWrite(leftmotorPinB, LOW);
-  digitalWrite(rightmotorPinA, HIGH);
-  digitalWrite(rightmotorPinB, LOW);
+  digitalWrite(leftmotorPinA, motorON);
+  digitalWrite(leftmotorPinB, motorOFF);
+  digitalWrite(rightmotorPinA, motorON);
+  digitalWrite(rightmotorPinB, motorOFF);
 }
 
 void moveLeft() {
-  digitalWrite(leftmotorPinA, LOW);
-  digitalWrite(leftmotorPinB, HIGH);
-  digitalWrite(rightmotorPinA, HIGH);
-  digitalWrite(rightmotorPinB, LOW);
+  digitalWrite(leftmotorPinA, motorOFF);
+  digitalWrite(leftmotorPinB, motorON);
+  digitalWrite(rightmotorPinA, motorON);
+  digitalWrite(rightmotorPinB, motorOFF);
   delay(500);
   stopMotors();
 }
 
 void moveRight() {
-  digitalWrite(leftmotorPinA, HIGH);
-  digitalWrite(leftmotorPinB, LOW);
-  digitalWrite(rightmotorPinA, LOW);
-  digitalWrite(rightmotorPinB, HIGH);
+  digitalWrite(leftmotorPinA, motorON);
+  digitalWrite(leftmotorPinB, motorOFF);
+  digitalWrite(rightmotorPinA, motorOFF);
+  digitalWrite(rightmotorPinB, motorON);
   delay(500);
   stopMotors();
 }
 
 void turn180Degree() {
-  digitalWrite(leftmotorPinA, HIGH);
-  digitalWrite(leftmotorPinB, LOW);
-  digitalWrite(rightmotorPinA, LOW);
-  digitalWrite(rightmotorPinB, HIGH);
+  digitalWrite(leftmotorPinA, motorON);
+  digitalWrite(leftmotorPinB, motorOFF);
+  digitalWrite(rightmotorPinA, motorOFF);
+  digitalWrite(rightmotorPinB, motorON);
   delay(2000);
   stopMotors();
 }
